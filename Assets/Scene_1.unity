@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPos: {fileID: 1212740771}
   FracLag: 0.08
+  screenShiftModifier: 0.5
 --- !u!1 &1212740771
 GameObject:
   m_ObjectHideFlags: 0
