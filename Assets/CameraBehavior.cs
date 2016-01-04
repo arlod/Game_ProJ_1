@@ -7,6 +7,7 @@ public class CameraBehavior : MonoBehaviour
 {
     public GameObject PlayerPos;
     public float FracLag = 0.2F;
+    public float tiltShift = 80;
     public float screenShiftModifier = 0.5F;
     private Vector3 CameraPos;
     private Vector3 Player;
@@ -36,7 +37,32 @@ public class CameraBehavior : MonoBehaviour
         }
         if (Input.GetKey("a"))
         {
-            Quaternion turnAngle = Quaternion.Euler(70, -90, -90);
+            Quaternion turnAngle = Quaternion.Euler(tiltShift, -90, -90);
+            //Quaternion turnAngle = Quaternion.LookRotation(PlayerPos.GetComponent<Transform>().position - gameObject.GetComponent<Transform>().position + new Vector3(-5, 0, 0));
+            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
+            
+        }
+        else if (Input.GetKey("d"))
+        {
+            Quaternion turnAngle = Quaternion.Euler(tiltShift, 90, 90);
+            //Quaternion turnAngle = Quaternion.LookRotation(PlayerPos.GetComponent<Transform>().position - gameObject.GetComponent<Transform>().position + new Vector3(-5, 0, 0));
+            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
+        }
+        else if (Input.GetKey("s"))
+        {
+            Quaternion turnAngle = Quaternion.Euler(tiltShift, -180, -180);
+            //Quaternion turnAngle = Quaternion.LookRotation(PlayerPos.GetComponent<Transform>().position - gameObject.GetComponent<Transform>().position + new Vector3(-5, 0, 0));
+            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
+        }
+        else if (Input.GetKey("w"))
+        {
+            Quaternion turnAngle = Quaternion.Euler(tiltShift, 0, 0);
+            //Quaternion turnAngle = Quaternion.LookRotation(PlayerPos.GetComponent<Transform>().position - gameObject.GetComponent<Transform>().position + new Vector3(-5, 0, 0));
+            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
+        }
+        else
+        {
+            Quaternion turnAngle = Quaternion.Euler(90, 0, 0);
             //Quaternion turnAngle = Quaternion.LookRotation(PlayerPos.GetComponent<Transform>().position - gameObject.GetComponent<Transform>().position + new Vector3(-5, 0, 0));
             gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
             
