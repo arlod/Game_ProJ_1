@@ -30,6 +30,7 @@ public class CameraBehavior : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             mousePos.x -= Screen.width / 2;
             mousePos.y -= Screen.height / 2;
+
             float mouseAngle = Mathf.Atan2(mousePos.y, mousePos.x);
             float targetX = Mathf.Cos(mouseAngle) /  screenShiftModifier + Player.x;
             float targetY = Mathf.Sin(mouseAngle) /  screenShiftModifier + Player.z;
@@ -44,34 +45,34 @@ public class CameraBehavior : MonoBehaviour
         }
 
         //tilt the camera when the player moves
-        if (Input.GetKey("a"))
-        {
-            Quaternion turnAngle = Quaternion.Euler(80, -tiltShift * 10, -tiltShift * 10);
-            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
-            
-        }
-        else if (Input.GetKey("d"))
-        {
-            Quaternion turnAngle = Quaternion.Euler(80, tiltShift * 10, tiltShift * 10);
-            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
-        }
-        else if (Input.GetKey("s"))
-        {
-            Quaternion turnAngle = Quaternion.Euler(80 + tiltShift, -180, -180);
-            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
-        }
-        else if (Input.GetKey("w"))
-        {
-            Quaternion turnAngle = Quaternion.Euler(80 - tiltShift, 0, 0);
-            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
-        }
+//        if (Input.GetKey("a"))
+//        {
+//            Quaternion turnAngle = Quaternion.Euler(80, -tiltShift * 10, -tiltShift * 10);
+//            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
+//            
+//        }
+//        else if (Input.GetKey("d"))
+//        {
+//            Quaternion turnAngle = Quaternion.Euler(80, tiltShift * 10, tiltShift * 10);
+//            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
+//        }
+//        else if (Input.GetKey("s"))
+//        {
+//            Quaternion turnAngle = Quaternion.Euler(80 + tiltShift, -180, -180);
+//            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
+//        }
+//        else if (Input.GetKey("w"))
+//        {
+//            Quaternion turnAngle = Quaternion.Euler(80 - tiltShift, 0, 0);
+//            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
+//        }
         //reset camera angle when player is not moving
-        else
-        {
-            Quaternion turnAngle = Quaternion.Euler(80, 0, 0);
-            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
-            
-        }
+//        else
+//        {
+//            Quaternion turnAngle = Quaternion.Euler(80, 0, 0);
+//            gameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(gameObject.GetComponent<Transform>().rotation, turnAngle, FracLag);
+//            
+//        }
 
     }
 
